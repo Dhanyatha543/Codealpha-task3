@@ -1,0 +1,46 @@
+package codetask3;
+import java.util.Scanner;
+
+public class Task3 {
+
+    // Method to generate chatbot response
+    public static String getResponse(String userInput) {
+        userInput = userInput.toLowerCase();
+
+        if (userInput.contains("hello") || userInput.contains("hi")) {
+            return "Hello! How can I help you today?";
+        } else if (userInput.contains("how are you")) {
+            return "I'm just a chatbot, but I'm doing great! Thanks for asking.";
+        } else if (userInput.contains("name")) {
+            return "I am your AI Chatbot created in Java.";
+        } else if (userInput.contains("weather")) {
+            return "I can't check live weather yet, but it's always sunny in Java world!";
+        } else if (userInput.contains("bye")) {
+            return "Goodbye! Have a nice day.";
+        } else if (userInput.contains("help")) {
+            return "Sure! You can ask me about my name, weather, or just say hello.";
+        } else {
+            return "I'm not sure how to respond to that. Can you rephrase?";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("🤖 Java Chatbot: Hello! Type 'bye' to exit.");
+
+        while (true) {
+            System.out.print("You: ");
+            String userInput = sc.nextLine();
+
+            if (userInput.equalsIgnoreCase("bye")) {
+                System.out.println("🤖 Chatbot: Goodbye! Have a great day!");
+                break;
+            }
+
+            String response = getResponse(userInput);
+            System.out.println("🤖 Chatbot: " + response);
+        }
+
+        sc.close();
+    }
+}
